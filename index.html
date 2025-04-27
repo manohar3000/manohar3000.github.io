@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manohar Gehlot - Deep Learning and Web3 Portfolio">
+    <title>Manohar Gehlot | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Dark Mode Colors */
+            --navy: #0a192f;
+            --black: #121212;
+            --electric-blue: #00d9ff;
+            --soft-purple: #b967ff;
+            --cyan: #64ffda;
+
+            /* Light Mode Colors */
+            --light-bg: #f8fafc;
+            --light-card: #ffffff;
+            --light-accent-1: #4361ee;
+            --light-accent-2: #7209b7;
+            --light-accent-3: #3a0ca3;
+            --light-text: #1e293b;
+            --light-text-secondary: #475569;
+            --light-border: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom right, var(--navy), var(--black));
+            color: #e6e6e6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background 0.5s ease, color 0.5s ease;
+        }
+
+        body.light-mode {
+            background: linear-gradient(135deg, var(--light-bg), #e2e8f0);
+            color: var(--light-text);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--electric-blue), var(--soft-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .light-mode .gradient-text {
+            background: linear-gradient(90deg, var(--light-accent-1), var(--light-accent-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hover-glow:hover {
+            box-shadow: 0 0 15px var(--electric-blue);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .hover-glow:hover {
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .bg-card {
+            background: rgba(18, 18, 24, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: background 0.5s ease, border-color 0.5s ease;
+        }
+
+        .light-mode .bg-card {
+            background: var(--light-card);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--light-border);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-item {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .light-mode .nav-item {
+            color: var(--light-text);
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--electric-blue), var(--soft-purple));
+            transition: width 0.3s ease;
+        }
+
+        .light-mode .nav-item::after {
+            background: linear-gradient(90deg, var(--light-accent-1), var(--light-accent-2));
+        }
+
+        .nav-item:hover::after,
+        .nav-item.active::after {
+            width: 100%;
+        }
+
+        .skill-badge {
+            background: rgba(0, 217, 255, 0.1);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .skill-badge {
+            background: rgba(67, 97, 238, 0.08);
+            border: 1px solid rgba(67, 97, 238, 0.2);
+            color: var(--light-text);
+        }
+
+        .skill-badge:hover {
+            background: rgba(0, 217, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .light-mode .skill-badge:hover {
+            background: rgba(67, 97, 238, 0.12);
+            transform: translateY(-2px);
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 217, 255, 0.2);
+        }
+
+        .light-mode .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.15);
+        }
+
+        .tech-tag {
+            background: rgba(185, 103, 255, 0.1);
+            border: 1px solid rgba(185, 103, 255, 0.3);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .light-mode .tech-tag {
+            background: rgba(114, 9, 183, 0.08);
+            border: 1px solid rgba(114, 9, 183, 0.2);
+            color: var(--light-text-secondary);
+        }
+
+        #mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .light-mode #mobile-menu {
+            background: var(--light-card);
+            color: var(--light-text);
+            border-right: 1px solid var(--light-border);
+        }
+
+        #mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, rgba(10, 25, 47, 0.8), rgba(18, 18, 18, 0.8));
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .achievement-card {
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.8), rgba(255, 255, 255, 0.8));
+            border: 1px solid rgba(67, 97, 238, 0.2);
+        }
+
+        .achievement-card:hover {
+            border-color: var(--cyan);
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2);
+        }
+
+        .light-mode .achievement-card:hover {
+            border-color: var(--light-accent-1);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.2);
+        }
+
+        .section-heading::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            margin-top: 5px;
+            background: linear-gradient(90deg, var(--electric-blue), var(--soft-purple));
+            transition: background 0.3s ease;
+        }
+
+        .light-mode .section-heading::after {
+            background: linear-gradient(90deg, var(--light-accent-1), var(--light-accent-2));
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, rgba(0, 217, 255, 0.8), rgba(185, 103, 255, 0.8));
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .btn-primary {
+            background: linear-gradient(90deg, var(--light-accent-1), var(--light-accent-2));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, rgba(0, 217, 255, 1), rgba(185, 103, 255, 1));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 217, 255, 0.4);
+        }
+
+        .light-mode .btn-primary:hover {
+            background: linear-gradient(90deg, var(--light-accent-1), var(--light-accent-3));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--electric-blue);
+            color: var(--electric-blue);
+            transition: all 0.3s ease;
+        }
+
+        .light-mode .btn-outline {
+            border: 1px solid var(--light-accent-1);
+            color: var(--light-accent-1);
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 217, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 217, 255, 0.2);
+        }
+
+        .light-mode .btn-outline:hover {
+            background: rgba(67, 97, 238, 0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.15);
+        }
+
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            color: var(--electric-blue);
+        }
+
+        .light-mode .social-icon:hover {
+            color: var(--light-accent-1);
+        }
+
+        /* Header/Navigation - Light Mode */
+        header {
+            transition: background 0.5s ease;
+        }
+
+        .light-mode header {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--light-border);
+        }
+
+        .light-mode .nav-item {
+            color: var(--light-text);
+        }
+
+        .light-mode .nav-item:hover {
+            color: var(--light-accent-1);
+        }
+
+        /* Form elements - Light Mode */
+        .light-mode input,
+        .light-mode textarea {
+            background: white;
+            border-color: var(--light-border);
+            color: var(--light-text);
+        }
+
+        .light-mode input:focus,
+        .light-mode textarea:focus {
+            border-color: var(--light-accent-1);
+        }
+
+        /* Footer - Light Mode */
+        .light-mode footer {
+            background-color: rgba(248, 250, 252, 0.95);
+            border-top: 1px solid var(--light-border);
+        }
+
+        .light-mode footer a {
+            color: var(--light-text-secondary);
+        }
+
+        .light-mode footer a:hover {
+            color: var(--light-accent-1);
+        }
+
+        /* Light Mode Theme Toggle Button */
+        .light-mode #theme-toggle {
+            background: white;
+            border-color: var(--light-border);
+            color: var(--light-accent-1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Icons - Light Mode */
+        .light-mode .text-electric-blue {
+            color: var(--light-accent-1);
+        }
+
+        .light-mode .text-soft-purple {
+            color: var(--light-accent-2);
+        }
+
+        .light-mode .text-cyan {
+            color: var(--light-accent-3);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--navy);
+        }
+
+        .light-mode ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 217, 255, 0.5);
+            border-radius: 4px;
+        }
+
+        .light-mode ::-webkit-scrollbar-thumb {
+            background: rgba(67, 97, 238, 0.5);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 217, 255, 0.8);
+        }
+
+        .light-mode ::-webkit-scrollbar-thumb:hover {
+            background: rgba(67, 97, 238, 0.8);
+        }
+
+        /* Loading animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--navy);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .light-mode .loader {
+            background: var(--light-bg);
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            width: 40px;
+            height: 40px;
+            border: 3px solid transparent;
+            border-top-color: var(--electric-blue);
+            border-radius: 50%;
+            animation: spin 1s ease infinite;
+        }
+
+        .light-mode .loader-content {
+            border-top-color: var(--light-accent-1);
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .floating {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* Hero Section - Light Mode */
+        .light-mode #home .absolute.inset-0.bg-gradient-to-br {
+            opacity: 0.05;
+        }
+
+        /* Text Colors - Light Mode */
+        .light-mode .text-gray-300 {
+            color: var(--light-text-secondary);
+        }
+
+        .light-mode .text-gray-400 {
+            color: #64748b;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content"></div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="fixed w-full z-50 bg-opacity-80 bg-black backdrop-filter backdrop-blur-md">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">MG</div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-item text-gray-300 hover:text-white">Home</a>
+                    <a href="#about" class="nav-item text-gray-300 hover:text-white">About</a>
+                    <a href="#projects" class="nav-item text-gray-300 hover:text-white">Projects</a>
+                    <a href="#skills" class="nav-item text-gray-300 hover:text-white">Skills</a>
+                    <a href="#certificates" class="nav-item text-gray-300 hover:text-white">Certificates</a>
+                    <a href="#achievements" class="nav-item text-gray-300 hover:text-white">Achievements</a>
+                    <a href="#contact" class="nav-item text-gray-300 hover:text-white">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="fixed inset-y-0 left-0 w-4/5 bg-black bg-opacity-95 z-50 md:hidden">
+        <div class="flex justify-end p-4">
+            <button id="close-menu" class="text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        <nav class="flex flex-col space-y-6 p-8">
+            <a href="#home" class="text-xl text-gray-300 hover:text-white">Home</a>
+            <a href="#about" class="text-xl text-gray-300 hover:text-white">About</a>
+            <a href="#projects" class="text-xl text-gray-300 hover:text-white">Projects</a>
+            <a href="#skills" class="text-xl text-gray-300 hover:text-white">Skills</a>
+            <a href="#certificates" class="text-xl text-gray-300 hover:text-white">Certificates</a>
+            <a href="#achievements" class="text-xl text-gray-300 hover:text-white">Achievements</a>
+            <a href="#contact" class="text-xl text-gray-300 hover:text-white">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-navy to-black opacity-80 z-0"></div>
+
+        <!-- Background Elements -->
+        <div class="absolute inset-0 overflow-hidden z-0">
+            <div class="absolute top-20 left-10 w-24 h-24 rounded-full bg-electric-blue bg-opacity-5 blur-xl"></div>
+            <div class="absolute bottom-20 right-10 w-40 h-40 rounded-full bg-soft-purple bg-opacity-5 blur-xl"></div>
+            <div class="absolute top-1/3 right-1/4 w-32 h-32 rounded-full bg-cyan bg-opacity-5 blur-xl"></div>
+        </div>
+
+        <div class="container mx-auto px-4 z-10">
+            <div class="flex flex-col lg:flex-row items-center justify-between">
+                <div class="lg:w-1/2 mb-12 lg:mb-0" data-aos="fade-right" data-aos-duration="1000">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                        <span class="block">Hello, I'm</span>
+                        <span class="gradient-text text-5xl md:text-7xl">Manohar Gehlot</span>
+                    </h1>
+                    <h2 class="text-xl md:text-2xl text-gray-300 mb-8">
+                        Deep Learning Enthusiast | Web3 Developer | Full Stack Engineer
+                    </h2>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="btn-primary px-6 py-3 rounded-lg font-medium">View Resume</a>
+                        <a href="https://github.com/manohar3000" target="_blank"
+                            class="btn-outline px-6 py-3 rounded-lg font-medium flex items-center">
+                            <i class="fab fa-github mr-2"></i> GitHub
+                        </a>
+                        <a href="https://linkedin.com/in/manohar3000" target="_blank"
+                            class="btn-outline px-6 py-3 rounded-lg font-medium flex items-center">
+                            <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
+                    <div
+                        class="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-electric-blue to-soft-purple p-1 floating">
+                        <div class="absolute inset-0 rounded-full overflow-hidden">
+                            <img src="assets\images\Designer.png" alt="Manohar Gehlot"
+                                class="w-full h-full object-cover rounded-full" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-16 section-heading" data-aos="fade-up">About Me</h2>
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2" data-aos="fade-right" data-aos-duration="800">
+                    <div class="bg-card rounded-xl p-6 md:p-8">
+                        <p class="text-lg leading-relaxed mb-6">
+                            A deep learning and Web3 enthusiast with hands-on experience in computer vision,
+                            reinforcement learning, full-stack development, and decentralized technologies. Passionate
+                            about solving real-world problems and contributing to open-source innovation.
+                        </p>
+                        <p class="text-lg leading-relaxed mb-6">
+                            My journey in technology began with a fascination for how artificial intelligence could
+                            transform industries. This led me to explore the depths of neural networks, blockchain
+                            technologies, and full-stack development to build solutions that have real-world impact.
+                        </p>
+                        <p class="text-lg leading-relaxed">
+                            I'm constantly expanding my knowledge in emerging technologies and looking for opportunities
+                            to collaborate on projects that push the boundaries of what's possible with AI and Web3.
+                        </p>
+                    </div>
+                </div>
+                <div class="lg:w-1/2" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-card rounded-xl p-6 hover-glow">
+                            <div class="text-4xl mb-4 text-electric-blue">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Deep Learning</h3>
+                            <p class="text-gray-300">
+                                Specialized in computer vision and reinforcement learning algorithms.
+                            </p>
+                        </div>
+                        <div class="bg-card rounded-xl p-6 hover-glow">
+                            <div class="text-4xl mb-4 text-soft-purple">
+                                <i class="fas fa-link"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Web3 Development</h3>
+                            <p class="text-gray-300">
+                                Building decentralized applications and smart contracts.
+                            </p>
+                        </div>
+                        <div class="bg-card rounded-xl p-6 hover-glow">
+                            <div class="text-4xl mb-4 text-cyan">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Full Stack</h3>
+                            <p class="text-gray-300">
+                                End-to-end application development with modern frameworks.
+                            </p>
+                        </div>
+                        <div class="bg-card rounded-xl p-6 hover-glow">
+                            <div class="text-4xl mb-4 text-electric-blue">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Innovation</h3>
+                            <p class="text-gray-300">
+                                Creating solutions that combine AI with emerging technologies.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-16 section-heading" data-aos="fade-up">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-card rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">GPTini</h3>
+                        <p class="text-gray-300 mb-4">Character-level Transformer built in PyTorch, generating text one
+                            character at a time using transformer architecture.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-tag px-2 py-1 rounded text-xs">PyTorch</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Transformers</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">NLP</span>
+                        </div>
+                        <a href="https://github.com/manohar3000/GPTini"
+                            class="btn-outline px-4 py-2 rounded-lg text-sm inline-flex items-center">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card bg-card rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Deep Convolutional GANs</h3>
+                        <p class="text-gray-300 mb-4">Realistic face generation using CelebA dataset through Deep
+                            Convolutional Generative Adversarial Networks.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-tag px-2 py-1 rounded text-xs">GANs</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Computer Vision</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">TensorFlow</span>
+                        </div>
+                        <a href="https://github.com/manohar3000/DCGANs"
+                            class="btn-outline px-4 py-2 rounded-lg text-sm inline-flex items-center">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-card rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Madrin</h3>
+                        <p class="text-gray-300 mb-4">Neural Network Library published on PyPI, providing simple APIs
+                            for building and training neural networks.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Python</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">PyPI</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Neural Networks</span>
+                        </div>
+                        <a href="https://github.com/manohar3000/madrin"
+                            class="btn-outline px-4 py-2 rounded-lg text-sm inline-flex items-center">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card bg-card rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Neural For All</h3>
+                        <p class="text-gray-300 mb-4">MERN stack neural network training dashboard providing an
+                            intuitive UI for model building and training.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-tag px-2 py-1 rounded text-xs">MongoDB</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Express</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">React</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Node.js</span>
+                        </div>
+                        <a href="https://github.com/manohar3000/neural-for-all"
+                            class="btn-outline px-4 py-2 rounded-lg text-sm inline-flex items-center">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card bg-card rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="500">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Snake Game AI</h3>
+                        <p class="text-gray-300 mb-4">Reinforcement learning implementation with Double DQN algorithm to
+                            train an AI to master the Snake game.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Reinforcement Learning</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">PyGame</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">DQN</span>
+                        </div>
+                        <a href="https://github.com/manohar3000/snake-game-ai"
+                            class="btn-outline px-4 py-2 rounded-lg text-sm inline-flex items-center">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card bg-card rounded-xl overflow-hidden" data-aos="fade-up" data-aos-delay="600">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3">Blockchain-Based IP Protection</h3>
+                        <p class="text-gray-300 mb-4">Web3 intellectual property registration platform using NFTs and
+                            IPFS for secure, immutable record-keeping.</p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Ethereum</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">IPFS</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">Smart Contracts</span>
+                            <span class="tech-tag px-2 py-1 rounded text-xs">NFTs</span>
+                        </div>
+                        <a href="https://github.com/manohar3000/blockchain-ip"
+                            class="btn-outline px-4 py-2 rounded-lg text-sm inline-flex items-center">
+                            <i class="fab fa-github mr-2"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-16 section-heading" data-aos="fade-up">Skills</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Programming Languages -->
+                <div class="bg-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-code text-electric-blue mr-3"></i> Programming Languages
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge px-3 py-2 rounded-lg">Python</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">JavaScript</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">TypeScript</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">C++</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">Solidity</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">SQL</span>
+                    </div>
+                </div>
+
+                <!-- Deep Learning -->
+                <div class="bg-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-brain text-soft-purple mr-3"></i> Deep Learning
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge px-3 py-2 rounded-lg">PyTorch</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">TensorFlow</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">Computer Vision</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">GANs</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">Reinforcement Learning</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">NLP</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">Transformers</span>
+                    </div>
+                </div>
+
+                <!-- Machine Learning -->
+                <div class="bg-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-chart-line text-cyan mr-3"></i> Machine Learning
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge px-3 py-2 rounded-lg">scikit-learn</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">Pandas</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">NumPy</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">Data Visualization</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">Feature Engineering</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">Model Deployment</span>
+                    </div>
+                </div>
+
+                <!-- Full Stack -->
+                <div class="bg-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-layer-group text-electric-blue mr-3"></i> Full Stack
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge px-3 py-2 rounded-lg">React</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">Node.js</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">Express</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">MongoDB</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">RESTful APIs</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">HTML5/CSS3</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">TailwindCSS</span>
+                    </div>
+                </div>
+
+                <!-- Blockchain & Web3 -->
+                <div class="bg-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-link text-soft-purple mr-3"></i> Blockchain & Web3
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge px-3 py-2 rounded-lg">Ethereum</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">Smart Contracts</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">Solidity</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">Web3.js</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">IPFS</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">DApps</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">NFTs</span>
+                    </div>
+                </div>
+
+                <!-- Tools & Technologies -->
+                <div class="bg-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="600">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-tools text-cyan mr-3"></i> Tools & Technologies
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-badge px-3 py-2 rounded-lg">Git</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">Docker</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">AWS</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">CI/CD</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">Jupyter</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">Linux</span>
+                        <span class="skill-badge px-3 py-2 rounded-lg">VS Code</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-16 section-heading" data-aos="fade-up">Certificates</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Certificate 1 -->
+                <div class="bg-card rounded-xl p-6 hover-glow" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-3xl mb-4 text-cyan">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">End to End Machine Learning</h3>
+                    <p class="text-gray-300 mb-2">UTU</p>
+                    <p class="text-sm text-gray-400">September 2024</p>
+                </div>
+
+                <!-- Certificate 2 -->
+                <div class="bg-card rounded-xl p-6 hover-glow" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-3xl mb-4 text-electric-blue">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Recent Advancements in AI and Robotics</h3>
+                    <p class="text-gray-300 mb-2">SVNIT</p>
+                    <p class="text-sm text-gray-400">July 2024</p>
+                </div>
+
+                <!-- Certificate 3 -->
+                <div class="bg-card rounded-xl p-6 hover-glow" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-3xl mb-4 text-soft-purple">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Drone Technology and Applications</h3>
+                    <p class="text-gray-300 mb-2">SVNIT</p>
+                    <p class="text-sm text-gray-400">June 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-16 section-heading" data-aos="fade-up">Achievements</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Achievement 1 -->
+                <div class="achievement-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="text-3xl text-electric-blue mr-4">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">AIR-663</h3>
+                    </div>
+                    <p class="text-gray-300">GATE DA 2025</p>
+                </div>
+
+                <!-- Achievement 2 -->
+                <div class="achievement-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="text-3xl text-soft-purple mr-4">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Top 7</h3>
+                    </div>
+                    <p class="text-gray-300">Odoo x Amalthea Hackathon 2024 at IIT Gandhinagar</p>
+                </div>
+
+                <!-- Achievement 3 -->
+                <div class="achievement-card rounded-xl p-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="text-3xl text-cyan mr-4">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">Finalist</h3>
+                    </div>
+                    <p class="text-gray-300">Peer-to-peer compute marketplace at Higgs-a-thon 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section (Optional) -->
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-16 section-heading" data-aos="fade-up">Blog</h2>
+
+            <div class="text-center py-12" data-aos="fade-up">
+                <div class="text-6xl mb-6 gradient-text">
+                    <i class="fas fa-pencil-alt"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Coming Soon</h3>
+                <p class="text-gray-300 max-w-lg mx-auto">
+                    I'm working on sharing my insights and experiences in deep learning, Web3, and full-stack
+                    development.
+                    Check back soon for articles!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-16 section-heading" data-aos="fade-up">Contact Me</h2>
+
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2" data-aos="fade-right" data-aos-duration="800">
+                    <div class="bg-card rounded-xl p-8">
+                        <h3 class="text-2xl font-bold mb-6">Get In Touch</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="text-electric-blue mr-4 mt-1">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Email</h4>
+                                    <a href="mailto:manohargehlot3000@gmail.com"
+                                        class="text-gray-300 hover:text-white transition">manohargehlot3000@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-soft-purple mr-4 mt-1">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">GitHub</h4>
+                                    <a href="https://github.com/manohar3000" target="_blank"
+                                        class="text-gray-300 hover:text-white transition">github.com/manohar3000</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-cyan mr-4 mt-1">
+                                    <i class="fab fa-linkedin"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">LinkedIn</h4>
+                                    <a href="https://linkedin.com/in/manohar3000" target="_blank"
+                                        class="text-gray-300 hover:text-white transition">linkedin.com/in/manohar3000</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-12">
+                            <h3 class="text-xl font-bold mb-4">Connect</h3>
+                            <div class="flex space-x-6">
+                                <a href="https://github.com/manohar3000" target="_blank"
+                                    class="social-icon text-2xl text-gray-300 hover:text-white">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://linkedin.com/in/manohar3000" target="_blank"
+                                    class="social-icon text-2xl text-gray-300 hover:text-white">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-black bg-opacity-70">
+            <div class="text-center">
+                <p class="text-gray-400">© 2025 Manohar Gehlot. All rights reserved.</p>
+            </div>
+    </footer>
+
+    <!-- Dark/Light Mode Toggle Button (Optional) -->
+    <button id="theme-toggle"
+        class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-black bg-opacity-70 border border-gray-700 flex items-center justify-center text-white hover-glow">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS animation library
+        document.addEventListener('DOMContentLoaded', function () {
+            AOS.init({
+                duration: 800,
+                easing: 'ease',
+                once: true
+            });
+
+            // Hide loader when page is loaded
+            setTimeout(function () {
+                document.getElementById('loader').classList.add('hidden');
+            }, 500);
+
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const closeMenu = document.getElementById('close-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+            menuToggle.addEventListener('click', function () {
+                mobileMenu.classList.add('active');
+            });
+
+            closeMenu.addEventListener('click', function () {
+                mobileMenu.classList.remove('active');
+            });
+
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+
+            // Active navigation item based on scroll position
+            const sections = document.querySelectorAll('section');
+            const navItems = document.querySelectorAll('.nav-item');
+
+            window.addEventListener('scroll', function () {
+                let current = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+
+                    if (window.pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href').substring(1) === current) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // Theme toggle functionality (Optional)
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+            let isDarkMode = true;
+
+            themeToggle.addEventListener('click', () => {
+                // 1. Flip the class on <body>
+                document.body.classList.toggle('light-mode');
+
+                // 2. Check which mode we’re in
+                const isLight = document.body.classList.contains('light-mode');
+
+                // 3. Update the icon
+                themeIcon.classList.toggle('fa-moon', !isLight);
+                themeIcon.classList.toggle('fa-sun', isLight);
+            });
+        });
+    </script>
+</body>
+</html>
