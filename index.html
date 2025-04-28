@@ -144,6 +144,7 @@
             background: rgba(67, 97, 238, 0.12);
             transform: translateY(-2px);
         }
+
         .project-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -163,6 +164,12 @@
             border: 1px solid rgba(185, 103, 255, 0.3);
             transition: background 0.3s ease, border-color 0.3s ease;
         }
+
+        .light-mode #menu-toggle,
+        .light-mode #close-menu {
+            color: var(--light-text);
+        }
+
 
         .light-mode .tech-tag {
             background: rgba(114, 9, 183, 0.08);
@@ -475,7 +482,7 @@
                 </nav>
 
                 <!-- Mobile Menu Button -->
-                <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+                <button id="menu-toggle" class="md:hidden focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -489,7 +496,7 @@
     <!-- Mobile Navigation Menu -->
     <div id="mobile-menu" class="fixed inset-y-0 left-0 w-4/5 bg-black bg-opacity-95 z-50 md:hidden">
         <div class="flex justify-end p-4">
-            <button id="close-menu" class="text-white focus:outline-none">
+            <button id="close-menu" class="focus:outline-none">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -529,7 +536,8 @@
                         Deep Learning Enthusiast | Web3 Developer | Full Stack Engineer
                     </h2>
                     <div class="flex flex-wrap gap-4">
-                        <a href="#" class="btn-primary px-6 py-3 rounded-lg font-medium">View Resume</a>
+                        <a href="assets\pdfs\Manohar Resume.pdf" target="_blank"
+                            class="btn-primary px-6 py-3 rounded-lg font-medium">View Resume</a>
                         <a href="https://github.com/manohar3000" target="_blank"
                             class="btn-outline px-6 py-3 rounded-lg font-medium flex items-center">
                             <i class="fab fa-github mr-2"></i> GitHub
@@ -544,7 +552,7 @@
                     <div
                         class="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-electric-blue to-soft-purple p-1 floating">
                         <div class="absolute inset-0 rounded-full overflow-hidden">
-                            <img src="assets\images\Designer.png" alt="Manohar Gehlot"
+                            <img src="assets\images\programmer.png" alt="Manohar Gehlot"
                                 class="w-full h-full object-cover rounded-full" />
                         </div>
                     </div>
@@ -560,20 +568,24 @@
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <div class="lg:w-1/2" data-aos="fade-right" data-aos-duration="800">
                     <div class="bg-card rounded-xl p-6 md:p-8">
-                        <p class="text-lg leading-relaxed mb-6">
-                            A deep learning and Web3 enthusiast with hands-on experience in computer vision,
-                            reinforcement learning, full-stack development, and decentralized technologies. Passionate
-                            about solving real-world problems and contributing to open-source innovation.
-                        </p>
-                        <p class="text-lg leading-relaxed mb-6">
-                            My journey in technology began with a fascination for how artificial intelligence could
-                            transform industries. This led me to explore the depths of neural networks, blockchain
-                            technologies, and full-stack development to build solutions that have real-world impact.
-                        </p>
-                        <p class="text-lg leading-relaxed">
-                            I'm constantly expanding my knowledge in emerging technologies and looking for opportunities
-                            to collaborate on projects that push the boundaries of what's possible with AI and Web3.
-                        </p>
+                        <ul class="text-lg leading-relaxed mb-6 space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-star text-soft-purple mt-1 mr-3"></i>
+                                <span><strong>Deep Learning & Web3 Enthusiast</strong> specializing in computer vision and reinforcement learning.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-star text-soft-purple mt-1 mr-3"></i>
+                                <span><strong>Hands-on experience</strong> in full-stack development and decentralized technologies.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-star text-soft-purple mt-1 mr-3"></i>
+                                <span><strong>Passionate about solving real-world problems</strong> through innovative AI and blockchain solutions.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-star text-soft-purple mt-1 mr-3"></i>
+                                <span><strong>Committed to open-source innovation</strong> and continuous technological growth.</span>
+                            </li>
+                          </ul>
                     </div>
                 </div>
                 <div class="lg:w-1/2" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
@@ -654,7 +666,7 @@
                             <span class="tech-tag px-2 py-1 rounded text-xs">Computer Vision</span>
                             <span class="tech-tag px-2 py-1 rounded text-xs">TensorFlow</span>
                         </div>
-                        <a href="https://github.com/manohar3000/DCGANs"
+                        <a href="https://github.com/manohar3000/DCGAN" 
                             class="btn-outline px-4 py-2 rounded-lg text-sm inline-flex items-center">
                             <i class="fab fa-github mr-2"></i> View on GitHub
                         </a>
@@ -672,7 +684,7 @@
                             <span class="tech-tag px-2 py-1 rounded text-xs">PyPI</span>
                             <span class="tech-tag px-2 py-1 rounded text-xs">Neural Networks</span>
                         </div>
-                        <a href="https://github.com/manohar3000/madrin"
+                        <a href="https://github.com/manohar3000/Madrin-A_Neural_Network_Library"
                             class="btn-outline px-4 py-2 rounded-lg text-sm inline-flex items-center">
                             <i class="fab fa-github mr-2"></i> View on GitHub
                         </a>
@@ -691,7 +703,7 @@
                             <span class="tech-tag px-2 py-1 rounded text-xs">React</span>
                             <span class="tech-tag px-2 py-1 rounded text-xs">Node.js</span>
                         </div>
-                        <a href="https://github.com/manohar3000/neural-for-all"
+                        <a href="https://github.com/manohar3000/Neural_For_All"
                             class="btn-outline px-4 py-2 rounded-lg text-sm inline-flex items-center">
                             <i class="fab fa-github mr-2"></i> View on GitHub
                         </a>
@@ -709,7 +721,7 @@
                             <span class="tech-tag px-2 py-1 rounded text-xs">PyGame</span>
                             <span class="tech-tag px-2 py-1 rounded text-xs">DQN</span>
                         </div>
-                        <a href="https://github.com/manohar3000/snake-game-ai"
+                        <a href="https://github.com/manohar3000/Snake_Game_AI"
                             class="btn-outline px-4 py-2 rounded-lg text-sm inline-flex items-center">
                             <i class="fab fa-github mr-2"></i> View on GitHub
                         </a>
@@ -728,7 +740,7 @@
                             <span class="tech-tag px-2 py-1 rounded text-xs">Smart Contracts</span>
                             <span class="tech-tag px-2 py-1 rounded text-xs">NFTs</span>
                         </div>
-                        <a href="https://github.com/manohar3000/blockchain-ip"
+                        <a href="https://github.com/manohar3000/Blockchain-based-IP-Protection"
                             class="btn-outline px-4 py-2 rounded-lg text-sm inline-flex items-center">
                             <i class="fab fa-github mr-2"></i> View on GitHub
                         </a>
@@ -1004,9 +1016,9 @@
 
     <!-- Footer -->
     <footer class="py-8 bg-black bg-opacity-70">
-            <div class="text-center">
-                <p class="text-gray-400">© 2025 Manohar Gehlot. All rights reserved.</p>
-            </div>
+        <div class="text-center">
+            <p class="text-gray-400">© 2025 Manohar Gehlot. All rights reserved.</p>
+        </div>
     </footer>
 
     <!-- Dark/Light Mode Toggle Button (Optional) -->
@@ -1094,4 +1106,5 @@
         });
     </script>
 </body>
+
 </html>
